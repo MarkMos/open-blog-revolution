@@ -7,7 +7,12 @@ declare module "@config" {
       AUTHOR: string;
       CONTACT: boolean;
       EMAIL: string;
-      THUMBS: boolean;
-      HOME_NB_POSTS: number
+      COVER: boolean;
+      POST_SUGGESTIONS: boolean,
+      HOME_NB_POSTS: number,
+      MENU: {
+        label: string,
+        url: string
+      }[]
     };
   }

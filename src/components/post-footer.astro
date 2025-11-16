@@ -2,7 +2,16 @@
 const { queryFilters, heading, nbPosts } = Astro.props;
 import AllPosts from 'src/components/posts.astro';
 
+import { CONFIG } from "@config";
+
+import PostFooterText from "../data/post-footer.mdx"
+
+
 ---
 <post-footer class="block mt-lg">
-    <AllPosts queryFilters={queryFilters} heading={heading} nbPosts={nbPosts} />
+    <PostFooterText />
+    {CONFIG.POST_SUGGESTIONS &&
+        <AllPosts queryFilters={queryFilters} heading={heading} nbPosts={nbPosts} />
+    }
+    
 </post-footer>

@@ -51,16 +51,21 @@ const DEFAULT_CONFIG = {
     AUTHOR: 'John Doe',
     CONTACT: true,
     EMAIL: 'contact@contact.com',
-    THUMBS: false,
+    COVER: false,
+    POST_SUGGESTIONS: true,
     HOME_NB_POSTS: 4
 };
 
 const createConfig = (defaultConfig, userConfig) => {
     let config = {};
+    // Was the config loaded from the yaml
     if (userConfig.configError) {
         config = { ...defaultConfig };
         return config;
     } else {
+        // 
+        const HOME_NB_POSTS = Math.abs(Math.floor(userConfig.HOME_NB_POSTS));
+        userConfig.HOME_NB_POSTS = HOME_NB_POSTS;
         config = {...defaultConfig, ...userConfig};
         return config;
     }

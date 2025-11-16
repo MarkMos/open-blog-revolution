@@ -1,14 +1,14 @@
 ---
-import { CONFIG } from "../js/load-config";
+import { CONFIG } from "@config";
 ---
 <header class="container-lg centered pw-base">
     <nav class="flex container-lg w-full">
-        <a class="ml-0" href=`${import.meta.env.BASE_URL}`>{CONFIG.TITLE}</a>
-        </a>
-        <a class="ml-auto" href="/rss.xml">RSS</a>
-        <a class="" href="/about">About</a>
+        <a class="ml-0" href={import.meta.env.BASE_URL}>{CONFIG.TITLE}</a>
+        {CONFIG.MENU.map(link => 
+            (<a href={link.url}>{link.label}</a>)
+        )}
         {CONFIG.CONTACT && (
-        <a class="mr-0" href=`mailto:${CONFIG.EMAIL}`>Contact</a>
+                    <a class="mr-0" href={`mailto:${CONFIG.EMAIL}`}>Contact</a>
         )}
     </nav>
 </header>

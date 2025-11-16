@@ -1,10 +1,11 @@
 ---
 import Tags from "./tags.astro";
 import { getCollection } from "astro:content";
-import { sanitizeString } from "public/js/util/util";
 const allPosts = await getCollection("posts");
 
-const { queryFilters, heading, nbPosts } = Astro.props;
+const { queryFilters, heading, nbPosts, hasCover = false } = Astro.props;
+
+console.log('hasCover', hasCover)
 
 const tagFilters: string[] = [].concat( queryFilters?.tags || ["all"]);
 
@@ -15,22 +16,17 @@ const filteredByTag = allPosts.filter( post =>
 );
 
 const filteredBySlug = filteredByTag.filter( post => { 
-  // const slug = post.data.postSlug || sanitizeString(post.data.title);
   const slug = post.slug;
   return !postFilters.includes(slug);
 })
-
-
-console.log("nbPosts", nbPosts)
-
 
 const posts = nbPosts ? filteredBySlug.slice(0, nbPosts) : filteredBySlug;
 
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-// Need to add slice
+import { CONFIG } from "@config";
 
-const a = "a";;
+import Cover from "./cover.astro";
 ---
 {posts.length > 0 && (
   <elt-all-posts>
@@ -40,31 +36,42 @@ const a = "a";;
       
     )}
     {posts.map(async (post) => {
+        const eltPostWrapperCLass = (hasCover && post.data.cover && post.data.cover.src && CONFIG.COVER == true) ? "duo-lg mt-base" : "block mt-base";
         // Mark the map callback as async
         return (
           <elt-post>
-            <elt-post-link>
               <h2>
-                <a href={`${import.meta.env.BASE_URL}${post.slug}`}>{post.data.title}</a>{" "}
-                
+                  <a href={`${import.meta.env.BASE_URL}${post.slug}`}>{post.data.title}</a>{" "}
               </h2>
               <elt-date>
-                {post.data.pubDate.toLocaleDateString("en-GB", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </elt-date>
-            </elt-post-link>
-            
-            <div>
-            <p class="mh-0">{post.data.description}</p>
-            
-          </div>
-          <div>
-            <Tags allPostTags = {post.data.tags} />
-          </div>
-          </elt-post>
+                  {post.data.pubDate.toLocaleDateString("en-GB", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </elt-date>
+            <elt-post-wrapper class={eltPostWrapperCLass}>
+              {(hasCover && post.data.cover && post.data.cover.src && CONFIG.COVER == true) && (
+                <elt-post-cover class="block">
+                    <Cover src={post.data.cover.src} alt={post.data.cover.alt || ''} className="mt-0 "/>
+                </elt-post-cover>
+              )}
+              <elt-post-body>
+              <elt-post-link>      
+                <elt-meta>
+                  <div>
+                    <p class="mh-0">{post.data.description}</p>
+                  </div>
+                  <div>
+                    <Tags allPostTags = {post.data.tags} />
+                  </div>
+                </elt-meta>
+              </elt-post-link>
+            </elt-post-body>
+    
+            </elt-post-wrapper>
+
+        </elt-post>
         );
       })
     }

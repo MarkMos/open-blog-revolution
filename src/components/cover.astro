@@ -1,0 +1,16 @@
+---
+const {src, alt, className} = Astro.props
+
+import { Picture } from "astro:assets";
+---
+<Picture
+class={className}
+loading={"lazy"}
+src={src}
+formats={["avif", "webp"]}
+alt={alt || ''}
+width={1280}
+height={720}
+widths={[240, 540, 720, 1280]}
+sizes="(max-width: 360px) 240px, (max-width: 720px) 480px, (max-width: 1600px) 720px"
+/>

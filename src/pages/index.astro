@@ -3,14 +3,17 @@ import BaseLayout from "../layouts/baselayout.astro";
 import AllPosts from "../components/posts.astro";
 
 import { CONFIG } from "@config";
+
+
+import Home from "../data/home.mdx"
 ---
 
 <BaseLayout>
   <h1>{CONFIG.TITLE}</h1>
-
+  <Home />
   <col-wrapper>
     <col-left>
-      <AllPosts nbPosts={CONFIG.HOME_NB_POSTS}/>
+      <AllPosts nbPosts={CONFIG.HOME_NB_POSTS} hasCover={CONFIG.COVER}/>
     </col-left>
 
     <col-right>

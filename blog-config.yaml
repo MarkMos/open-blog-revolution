@@ -6,5 +6,9 @@ CONFIG:
     - AUTHOR: John Doe
     - CONTACT: true
     - EMAIL: contact@contact.com
-    - THUMBS: false
+    - COVER: true
+    - POST_SUGGESTIONS: true
     - HOME_NB_POSTS: 6
+    - MENU:
+        - {label: RSS, url: /rss.xml}
+        - {label: About, url: /about}

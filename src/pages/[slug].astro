@@ -32,25 +32,14 @@ const queryFilters = {
     posts: slug
 }
 
-
 const heading = "<p class='mt-base strong'>You might also be interested in the following posts</p>";
 
-import { Picture } from "astro:assets";
-
+import Cover from "src/components/cover.astro";
 ---
 
 <Baselayout title={title} description={description} >
-  {post.data.cover && (
-     <Picture
-                                loading={"lazy"}
-                                src={post.data.cover.src}
-                                formats={["avif", "webp"]}
-                                alt={post.data.cover.alt}
-                                width={1280}
-                                height={720}
-                                widths={[240, 540, 720, 1280]}
-                                sizes="(max-width: 360px) 240px, (max-width: 720px) 480px, (max-width: 1600px) 720px"
-                            />
+  {(post.data.cover && post.data.cover.src && CONFIG.THUMBS == true) && (
+    <Cover src={post.data.cover.src} alt={post.data.cover.alt || ''} />
   )}
   
 
