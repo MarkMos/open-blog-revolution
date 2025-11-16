@@ -1,5 +1,7 @@
 import { visit } from 'unist-util-visit';
 import { parse } from 'acorn';
+import path from 'path';
+import fs from 'fs';
 
 function parseExpression(code) {
     return parse(code, {
@@ -44,28 +46,46 @@ function remarkExtendBlockquote () {
 
 
 function remarkExtendImage () {
-    return (tree) => {
+        return function (tree, file) {
+
+           /* Checks if the mdx file has an import statement for the Astro Picture component */
         const alreadyHasImport = tree.children.some(
-            (n) => n.type === 'mdxjsEsm' && n.value.includes("Picture")
-          );
-      
-          if (!alreadyHasImport) {
-            tree.children.unshift({
-              type: 'mdxjsEsm',
-              value: `import { Picture } from 'astro:assets';`,
-              data: {
-                estree: parseExpression(`import { Picture } from 'astro:assets';`)
-              }
-            });
-          }
+          (n) => n.type === 'mdxjsEsm' && n.value.includes("Picture")
+        );
+    
+        if (!alreadyHasImport) {
+          tree.children.unshift({
+            type: 'mdxjsEsm',
+            value: `import { Picture } from 'astro:assets';`,
+            data: {
+              estree: parseExpression(`import { Picture } from 'astro:assets';`)
+            }
+          });
+        }
 
-
+      /* End check if the mdx file has an import statement for the Astro Picture component */
 
         visit(tree, 'image', function (node, index, parent) {
             const imageAlt = node.alt || '';
             const imageTitle = node.title || '';
             const imageUrl = node.url || '';
-            let newNode = {
+            
+            let newNode;
+
+            if (!node.url || !node.url.startsWith('.')) {
+              newNode={};
+              parent.children[index] = newNode;
+              return
+            } 
+
+          console.log('node.url ', node.url )
+            // 2. Resolve the absolute path of the image
+          const absoluteImagePath = path.resolve(
+            path.dirname(file.path), // Path of the .mdx file
+            node.url             // Relative path of the image
+          );
+            
+            newNode = {
                     type: 'mdxJsxFlowElement',
                     name: 'figure',
                     attributes: [],  
@@ -110,9 +130,23 @@ function remarkExtendImage () {
                   }
             ]
           }
+          console.log('absoluteImagePath ', absoluteImagePath )
+
+
+          // 3. THE SAFETY CHECK: See if the file exists
+          if (!fs.existsSync(absoluteImagePath)) {
+            // 4. If not, log a warning and skip transformation
+            console.warn(
+              `[remark-astro-images] Image not found at ${node.url}`
+            );
+            newNode={};
+            parent.children[index] = newNode;
+            return; // Leave the node as a broken <img>
+          }
           parent.children[index] = newNode;
       })
+    }
 }
-}
+
 
 export { remarkExtendImage, remarkExtendBlockquote }

@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
-import { remarkExtendImage, remarkExtendBlockquote } from "./src/plugins/remark-plugins";
+import { remarkExtendImage, remarkExtendBlockquote } from "./src/js/plugins/remark-plugins";
 
 // https://astro.build/config
 export default defineConfig({
