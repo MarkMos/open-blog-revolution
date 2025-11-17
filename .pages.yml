@@ -16,10 +16,7 @@ content:
         label: Blog description
         type: string
       - name: LANG
-        label: Blog language
-          type: select
-          options:
-            - FR
-            - EN
-            - IT
-            - ES
+        label: "Blog language"
+        type: select
+        options:
+          values: [ EN, FR, IT ]
