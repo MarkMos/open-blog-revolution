@@ -19,7 +19,6 @@ content:
         label: Publication Date
         type: date
         format: yyyy-MM-dd
-        default: now
         required: true
       - name: status
         label: Status
