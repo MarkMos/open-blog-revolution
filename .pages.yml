@@ -32,3 +32,15 @@ content:
         label: Display post cover
         type: boolean
         default: true
+      - name: POST_THUMBNAILS
+        label: Display post thumbnails
+        type: boolean
+        default: true
+      - name: POST_SUGGESTIONS
+        label: Display post suggestions
+        type: boolean
+        default: true
+      - name: HOME_NB_POSTS
+        label: Number posts on homepage
+        type: number
+        default: 6
