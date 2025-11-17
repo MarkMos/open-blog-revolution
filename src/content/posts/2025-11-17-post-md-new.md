@@ -8,3 +8,5 @@ tags:
   - cooking
 ---
 Post md new body
+
+![](src/content/media/FFOTB_Large.jpg)
