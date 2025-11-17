@@ -20,7 +20,7 @@ content:
         type: string
       - name: tags
         label: Tags
-        type: object
+        type: string
         list: true
       - name: body
         label: Body
