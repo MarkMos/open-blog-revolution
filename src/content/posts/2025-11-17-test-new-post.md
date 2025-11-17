@@ -4,11 +4,11 @@ author: Iko
 title: Test New Post
 description: Post description
 tags:
-  - tag: holidays
-  - tag: cooking
-  - tag: soccer
+  - cooking
+  - travel
+  - rpgs
 ---
-# Heading #
+# Heading
 
 Here is the body of the text, let's try inserting an image
 
