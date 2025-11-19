@@ -50,6 +50,16 @@ content:
           - name: alt
             label: ALT
             type: string
+
+  - name: home
+    label: "Home intro text"
+    type: file
+    path: src/data/home.mdx
+    fields: 
+      - name: body
+        label: home
+        type: text
+        
   
   - name: footer
     label: "Footer text"
@@ -57,9 +67,8 @@ content:
     path: src/data/footer.mdx
     fields:
       - name: body
-        label: Body
+        label: Footer
         type: text
-        required: true
       
   - name: CONFIG
     label: "Blog Config"
