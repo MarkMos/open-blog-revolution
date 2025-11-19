@@ -40,6 +40,11 @@ li {
     font-weight: normal;
 }
 
+li > p {
+    display: inline;
+    margin: 0;
+    padding: 0;
+  }
 /* */
 
 /* */
