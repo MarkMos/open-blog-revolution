@@ -74,9 +74,9 @@ content:
     type: file
     path: src/data/post-suggestion-heading.mdx
     fields:
-      - name: body
+      - name: postSuggestionHeading
         label: Post Suggestion Heading
-        type: text
+        type: string
 
   - name: footer
     label: "Footer text"
