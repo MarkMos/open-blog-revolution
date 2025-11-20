@@ -93,10 +93,6 @@ content:
     label: "User Styles"
     type: file
     path: src/styles/user-styles.css
-    fields:
-      - name: body
-        label: Styles
-        type: text
       
   - name: CONFIG
     label: "Blog Config"
