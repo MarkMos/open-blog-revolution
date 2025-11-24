@@ -1,0 +1,23 @@
+---
+import Tags from "src/components/tags.astro";
+
+const { title='', description='', pubDate, tags=[] } = Astro.props;
+
+const isoDate = pubDate.toISOString();
+const readableDate = pubDate.toLocaleDateString("en-GB", {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+});
+
+---
+<header class="article-header">
+    <h1>{title}</h1>
+    <article-meta>
+      <article-date>
+        <time datetime={isoDate}>{readableDate}</time>
+      </article-date>
+      <Tags allPostTags={tags} />
+    </article-meta>
+    <h2 class="text-none">{description}</h2>
+</header>
