@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { CONFIG } from "@config";
+import { CONFIG } from "./src/js/load-config.js";
 
 
 import { remarkExtendImage, remarkExtendBlockquote } from "./src/js/plugins/remark-plugins";
