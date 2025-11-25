@@ -15,3 +15,6 @@ MENU:
     url: /rss.xml
   - label: Archive
     url: /archive/1
+BLOG_COVER:
+  src: ../media/obr_large.png
+  alt: Open Blog Revolution
