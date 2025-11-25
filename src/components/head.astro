@@ -1,6 +1,8 @@
 ---
 import { CONFIG } from "@config";
 
+console.log(CONFIG)
+
 const canonicalURL = Astro.url; // Get the canonical url, site url needs to be defined in astro.config.mjs
 
 const { title, description, type } = Astro.props;
@@ -24,8 +26,7 @@ const { title, description, type } = Astro.props;
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png"><!-- 180×180 -->
 
-    <!-- 
-    <meta property="og:image" content=>{image ? image : ""}
-    <meta property="og:image:alt" content=>{alt ? alt : ""}
-    -->
+    <meta property="og:image" content={CONFIG.BLOG_COVER.src ? CONFIG.BLOG_COVER.src  : ""}>
+    <meta property="og:image:alt" content={CONFIG.BLOG_COVER.alt ? CONFIG.BLOG_COVER.alt  : ""}>
+
 </head>

@@ -56,7 +56,7 @@ const DEFAULT_CONFIG = {
     MENU: [
         {
         label: "RSS",
-        url: "rss.xml"}]
+        url: "rss.xml"}],
 };
 
 const createConfig = (defaultConfig, userConfig) => {
