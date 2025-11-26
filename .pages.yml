@@ -1,13 +1,14 @@
 media:
-  - name: Media
+  - name: Posts_Media
     input: src/content/media
-    output: src/content/media
+    output: ../media
 content:
   - name: posts
     label: Posts
     type: collection
     path: src/content/posts
     filename: '{primary}.mdx'
+    media: Posts_Media
     view:
       fields: [title, pubDate]
     fields:
