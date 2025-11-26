@@ -1,47 +1,58 @@
-# Open Blog Revolution
+# Open Blog Revolution (OBR)
 
 ## What is this?
 
 A free template for building self-hosted blogs.
+
 It's built with [Astro](https://astro.build/).
+
+It's designed by IKO, web developper, and game designer, blogger at [The Coded Type](https://thecodedtype.com/).
+
+You can see a preview [here](https://open-blog-revolution.netlify.app/).
+
+## Philosphy
+
+OBR is an HTML-first blog template. It adheres to the principles of [Resilient Web Design](https://resilientwebdesign.com/) and aims at delivering fast and accessible websites. It uses a **Static Site Generator (SSG)** to build static HTML (Javascript free) pages from the blog content. It uses a file-based system as a database, which makes it easy to host on GitHub or build locally.
 
 ## Who is it for?
 
 * Writers who look for a simple solution to build self-hosted blogs.
-* Developpers who look for a starter template to expand. 
+* Developers who look for a starter template to expand.
 
-## WWat do you mean by self-hosting?
+## Self-hosting?
 
-An OBR Blog can be hosted anywhere. This document provides instructions to install it on the free [Netlify](https://www.netlify.com/) tier. 
+Any OBR blog can be hosted anywhere. This document provides instructions to install it on the free [Netlify](https://www.netlify.com/) tier. 
 
 ## License
+
+Released under the MIT License
 
 ## Installation on Netlify
 
 * Fork this repository (fork button on the top right corner). GitHub will create a copy of that entire project under your username. You might need to create a GitHub account.
 
-* Create a free account on [Netlify](https://www.netlify.com/). You can login with your GitHub credentials.
+* Create a free account on [Netlify](https://www.netlify.com/). You can log in with your GitHub credentials.
 
-* On Netlify, go to `Projects` select `Add new project/Import and existing project`
+* On Netlify, go to **Projects** select **Add new project / Import an existing project.**
 
-* Click on the `GitHub` icon. Select your newly created repository.
+* Click on the **GitHub** icon. Select your newly created repository.
 
-Every time you modify the blog or its contents Netlify will automatically update the website.
+* Every time you modify the blog or its contents, Netlify will automatically update the website.
 
 ## Adding content
 
 ### If you want to use a writer friendly backend interface
 
 * Open a free account on [Pages CMS](https://pagescms.org/)
-* Add your OBR GitHub repository as a Project
-* Open it
-* Edit the `Blog Connfig`
+* Add your OBR GitHub repository as a Project.
+* Open it.
+* Edit the **Blog Connfig**
 * Add Posts and Pages
 
 ### If you're comfortable with using markdown and GitHub
 
-* You can add posts as .mdx files in the `/src/content/posts` folder
-* You can add pages as .mdx files in the `/src/pages` folder
+* You can add posts as `.mdx `files in the `/src/content/posts` folder
+* You can add pages as `.mdx `files in the `/src/pages` folder
 * Media (images) must be located in `/src/content/media`
 * Edit `/blog-config.yaml` to configure your blog.
 
@@ -57,7 +68,7 @@ Partial project structure:
 │       └── media/
 └── blog-config.yaml
 ```
-New posts must have the following frontmatter
+New posts must have the following **frontmatter**
 
 ```yaml
 ---
@@ -84,18 +95,17 @@ Posts must have at least one tag.
 Please open an issue to report it.
 
 **Pull requests:**
-You're free to submit a pull request. However I can't guarantee I'll be accepting them right now, as the project is still being defined.
+You're free to submit a pull request. However, I can't guarantee I'll be accepting them right now, as the project is still being defined.
 
 **Copy**
-You're free to fork/copy the repository according to the license below.
+You're free to fork/copy the repository according to the [license](./LICENSE.md).
 
-## License
-MIT License
+## Credits and aknowledgments
 
-Copyright (c) 2025 IKO, The Coded Type, The Lost Bay Studio LTD
+Built with [ASTRO](https://astro.build/)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Fist logo Created by BnB Studio from [Noun Project](https://thenounproject.com/)
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+CSS utils inspired by [Kelp UI](https://kelpui.com/) and [Tailwind](https://kelpui.com/)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Resilient WWeb principles learned from [Jeremy Keith](https://resilientwebdesign.com/)
