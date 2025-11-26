@@ -1,6 +1,9 @@
 {
-  "name": "the-coded-type",
+  "name": "open-blog-revolution",
+  "author": "IKO",
+  "license": "MIT",
   "type": "module",
+  "repository": "https://github.com/the-coded-type/open-blog-revolution",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --host 0.0.0.0",

@@ -25,7 +25,7 @@ Any OBR blog can be hosted anywhere. This document provides instructions to inst
 
 ## License
 
-Released under the [MIT License](./LICENSE.md)
+Released under the [MIT License](./LICENSE)
 
 ## Installation on Netlify
 
@@ -98,7 +98,7 @@ Please open an issue to report it.
 You're free to submit a pull request. However, I can't guarantee I'll be accepting them right now, as the project is still being defined.
 
 **Copy**
-You're free to fork/copy the repository according to the [license](./LICENSE.md).
+You're free to fork/copy the repository according to the [license](./LICENSE).
 
 ## Credits and aknowledgments
 
