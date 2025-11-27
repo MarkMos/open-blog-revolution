@@ -1,11 +1,15 @@
 ---
 import { CONFIG } from "@config";
+
+const appendSlash = (str: string) => str.endsWith('/') ? str : str + '/';
+
+const base = appendSlash(import.meta.env.BASE_URL);
 ---
 <header class="container-lg centered pw-base">
     <nav class="flex container-lg w-full">
-        <a class="ml-0" href={import.meta.env.BASE_URL}>{CONFIG.TITLE}</a>
+        <a class="ml-0" href={base}>{CONFIG.TITLE}</a>
         {CONFIG.MENU.map(link => 
-            (<a href={`${import.meta.env.BASE_URL}${link.url}`}>{link.label}</a>)
+            (<a href={`${base}${link.url}`}>{link.label}</a>)
         )}
         {CONFIG.CONTACT && (
                     <a class="mr-0" href={`mailto:${CONFIG.EMAIL}`}>Contact</a>
