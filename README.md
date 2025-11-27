@@ -61,18 +61,6 @@ OR:
 
 * Every time you modify the blog or its contents, Netlify will automatically update the website.
 
-## Deploy on GitHub Pages
-
-* On your repository page click on **⚙️ Settings** 
-
-* Head to **Pages**
-
-* **In Build and Deployement** select as `source` `GitHub Actions`
-
-* You blog deploys at https://<user-name>.github.io/<repo-name>
-
-* Check the status of your deployment in your repo page under **Actions**
-
 ## How to start Blogging
 
 ⚠️ Now that your blog is installed you need to setup a backend that will allow you to write and publish blogs.
