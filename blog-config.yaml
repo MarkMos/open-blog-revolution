@@ -13,7 +13,7 @@ POST_SUGGESTIONS: true
 HOME_NB_POSTS: 6
 MENU:
   - label: RSS
-    url: /rss.xml
+    url: rss.xml
   - label: Archive
     url: archive
 BLOG_COVER:
