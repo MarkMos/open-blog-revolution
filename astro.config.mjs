@@ -12,7 +12,7 @@ import { remarkExtendImage, remarkExtendBlockquote } from "./src/js/plugins/rema
 // https://astro.build/config
 export default defineConfig({
   site: CONFIG.URL,
-  base: '/',
+  base: `/${CONFIG.BASE}`,
 
   devToolbar: {
       enabled: false
