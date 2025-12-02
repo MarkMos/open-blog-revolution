@@ -16,6 +16,8 @@ MENU:
     url: rss.xml
   - label: Archive
     url: archive
+  - label: Blogroll
+    url: blogroll
 BLOG_COVER:
   src: obr_large.png
   alt: Open Blog Revolution
