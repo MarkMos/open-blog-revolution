@@ -96,10 +96,13 @@ function remarkExtendImage () {
                 );
               }
 
+
+              const sanitizedUrl = (url) => url.startsWith('/') ? url : '/'+url;
+
               const isLocalImage = (url) => {
                 if (typeof url !=="string") return false;
                 const absoluteImagePath = path.resolve(
-                `src/media/${url}`            
+                `src/media${url}`            
                 );
                 return fs.existsSync(absoluteImagePath);
               }
@@ -109,7 +112,7 @@ function remarkExtendImage () {
                 if (!url || typeof url !== "string") return {success: false, type: 'error'};
                 // Check if it is remote
                 if (isRemoteImage(url)) {return {success: true, type: 'remote', src: url}};
-                if (isLocalImage(url)) {return {success: true, type: 'local', src: url}};
+                if (isLocalImage(sanitizedUrl(url))) {return {success: true, type: 'local', src: url}};
                 return {success: false, type: 'error'};
               }
               

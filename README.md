@@ -98,6 +98,17 @@ You can edit and create posts in the GitHub repo directly.
 * Media (images) must be located in `/src/content/media`
 * Edit `/blog-config.yaml` to configure your blog.
 
+## Iamges
+
+Mdx posts and frontmatter accept local and remote images.
+
+Local images must be placed in `src/media`.
+
+You don't need to specify the full path for images, just the filename, OBR figures out the image path.
+
+Example: `![ALT](filename.ext TITLE)`
+
+
 Partial project structure:
 
 ```text
@@ -107,7 +118,7 @@ Partial project structure:
 │   └── pages/
 │   └── content/
 │       └── posts/
-│       └── media/
+│   └── media/
 └── blog-config.yaml
 ```
 New posts must have the following **frontmatter**
@@ -122,12 +133,12 @@ author: Author name
 tags:
   - tag
 cover:
-  src: relative path, for example ../media/imagename
+  src: filenam, for example imagename.ext - subfolders accepted subfolder/imagename.ext
   title: string
   alt: string
 ---
 ```
-Posts must have at least one tag.
+Posts **must** have at least one tag.
 
 `.mdx` is similar to Markdown but allows you to use HTML tags.
 
