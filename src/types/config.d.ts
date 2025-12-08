@@ -22,6 +22,11 @@ declare module "@config" {
         alt: string
       }
       
+      BANNER: {
+        src: string,
+        alt: string
+      }
+      
       MENU: {
         label: string,
         url: string

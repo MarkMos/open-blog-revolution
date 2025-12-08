@@ -20,15 +20,7 @@ ul#all-posts li {
 nav ul li {
     margin-left: 0;
 }
-/*
-nav a:nth-child(2) {
-    margin-left: auto;
+
+img.banner {
+    margin: 0;
 }
-
-nav a {
-    margin-right: var(--gap)
-}
-*/
-
-/* End Navigation */ 
-
