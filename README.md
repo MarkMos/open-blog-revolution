@@ -98,7 +98,7 @@ In .mdx files (like posts) you don't need to specify the full path for images, j
 
 Example: `![ALT](filename.ext TITLE)`
 
-Images in .mdx files must be in their own paragraph slots:
+Images in .mdx files must be in their own paragraph:
 This is correct 
 
 ```markdown
