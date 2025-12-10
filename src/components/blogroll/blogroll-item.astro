@@ -7,25 +7,15 @@ if (!item) {
 
 const now:Date = new Date();
 const pubDate:Date = item.pubDate ? new Date(item.pubDate) : now;
-const elapsedMs = now - pubDate; // in ms
-const elapsedMinutes = Math.floor(elapsedMs/1000/60);
-const elapsedHours = Math.floor(elapsedMinutes/60);
-const elapsedDays = Math.floor(elapsedHours/24);
-const elapsedWeeks = Math.floor(elapsedDays/7);
-const elapsedMonths = Math.floor(elapsedDays/30);
-let elapsed;
 
-if (elapsedMonths>0) { elapsed = `${elapsedMonths} month${elapsedMonths == 1 ? '' : 's'} ago`}
-else if (elapsedWeeks>0) {elapsed = `${elapsedWeeks} week${elapsedWeeks == 1 ? '' : 's'} ago`}
-else if (elapsedDays>0) {elapsed = `${elapsedDays} day${elapsedDays == 1 ? '' : 's'} ago`}
-else if (elapsedHours>0) {elapsed = `${elapsedHours} hour${elapsedHours == 1 ? '' : 's'} ago`}
-else if (elapsedMinutes>0) {elapsed = `${elapsedMinutes} minute${elapsedMinutes == 1 ? '' : 's'} ago`}
-else {elapsed='Just now'};
+let pubTime;
+pubTime = `${pubDate.getHours()}:${pubDate.getMinutes()}, ${pubDate.getDate()}-${pubDate.getMonth()+1}-${pubDate.getFullYear()}`;
+
 ---
 <section class="rss-item">
     {item.blogTitle && <div class="blogroll-blog-title mt-lg strong">{item.blogTitle}</div>}
     {displayTitle && <div  class="mt-base"><a href={item.link}>{item.title}</a></div>}
     {displayLink && <div class="mt-base"><a href={item.link}>{item.link}</a> </div>}
-    {displayPubdate && elapsed && <div class="mt-base">{elapsed}</div>}
+    {displayPubdate && pubTime && <div class="mt-base">{pubTime}</div>}
     {displayDescription && <div class="mt-base" set:html={item.description}></div> }
 </section>
