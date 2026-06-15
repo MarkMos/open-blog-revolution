@@ -165,6 +165,8 @@ The template features a blogroll showing the latest posts from blogs you wish to
 
 The list of followed blogs is located in `/data/blogrolls.yaml`. Adapt this to contain the list of URLs of the feeds you wish to include, following the existing examples.
 
+You can define multiple blogrolls.
+
 ## Customizing the look of your blog
 The recommended method of customizing your blog is via the file `src/styles/user-styles.css`. Use this to overwrite the defaults set in the other `*.css` files.
 
