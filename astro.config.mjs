@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { CONFIG as rawConfig } from "./src/js/load-config.js";
+import { unified } from '@astrojs/markdown-remark';
 
 /** @type {any} */
 const CONFIG = rawConfig;
@@ -30,12 +31,12 @@ export default defineConfig({
   devToolbar: {
       enabled: false
     },
-
-  integrations: [sitemap(), mdx(
-    {
+  markdown:   {
+    processor: unified ({
       remarkPlugins: [remarkExtendImage, remarkExtendBlockquote]
-    }
-  )],
+    })
+  },
+  integrations: [sitemap(), mdx()],
   vite: {
     resolve: {
       alias: {

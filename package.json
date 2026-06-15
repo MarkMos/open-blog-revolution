@@ -12,11 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.5",
-    "@astrojs/rss": "^4.0.12",
-    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/mdx": "^6.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.3",
     "acorn": "^8.15.0",
-    "astro": "^5.15.6",
+    "astro": "^6.4.6",
     "js-yaml": "^4.1.0",
     "markdown-it": "^14.1.0",
     "remark-html": "^16.0.1",
