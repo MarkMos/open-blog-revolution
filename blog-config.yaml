@@ -1,11 +1,11 @@
-TITLE: Jorune #Blog title
-URL: 'https://bl-jorune.netlify.app/' # Blog url, we use it to generate sitemap
+TITLE: Open Blog Revolution #Blog title
+URL: 'https://open-blog-revolution.netlify.app/' # Blog url, we use it to generate sitemap
 BASE: '' # Blog base folder is any, most of the timme just ''
-DESCRIPTION: Jorune # Blog descriptioj
+DESCRIPTION: Free blog template # Blog descriptioj
 LANG: EN # Blog language
-DATE_LANG: en-US # Blog date format fr for dd/mm/yyyy en-US for mm/dd/yyyy
+DATE_LANG: fr # Blog date format fr for dd/mm/yyyy en-US for mm/dd/yyyy
 STYLE: sans # Defaut blog style sans | serif | sans-and-serif | serif-and-sans
-AUTHOR: Ben Laurence # Author name
+AUTHOR: Iko # Author name
 CONTACT: true # Set to false to omit email/contact link in header
 EMAIL: youremail@email.com # Email
 POST_COVER: true # Show post cover in post page
