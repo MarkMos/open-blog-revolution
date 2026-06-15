@@ -4,7 +4,7 @@ import { defineCollection, z } from 'astro:content';
 import { loadBlogroll } from './js/loadBlogroll.js';
 
 
-const allBlogRolls = Object.values(import.meta.glob('../data/blogrolls/*.mdx', { eager: true }));
+const allBlogRolls = Object.values(import.meta.glob('./data/blogrolls/*.mdx', { eager: true }));
 
 let allBlogRollUrls = [];
 
@@ -46,7 +46,6 @@ const posts = defineCollection({
 const blogRolls = defineCollection({
 	loader: async () => {
 		const blogRoll = await loadBlogroll(allBlogRollUrls);
-
 		return blogRoll;
 
 	},
