@@ -1,7 +1,7 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection, z } from 'astro:content';
 
-import { loadBlogroll } from '../js/loadBlogroll.js';
+import { loadBlogroll } from './js/loadBlogroll.js';
 
 
 const allBlogRolls = Object.values(import.meta.glob('../data/blogrolls/*.mdx', { eager: true }));
