@@ -163,7 +163,7 @@ Posts **must** have at least one tag.
 ## Blogroll
 The template features a blogroll showing the latest posts from blogs you wish to follow.
 
-The list of followed blogs is located in `src/data/blogroll.mdx`. Adapt this to contain the list of URLs of the feeds you wish to include, following the existing examples.
+The list of followed blogs is located in `/data/blogrolls.yaml`. Adapt this to contain the list of URLs of the feeds you wish to include, following the existing examples.
 
 ## Customizing the look of your blog
 The recommended method of customizing your blog is via the file `src/styles/user-styles.css`. Use this to overwrite the defaults set in the other `*.css` files.
