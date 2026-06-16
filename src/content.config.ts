@@ -2,10 +2,12 @@
 import { defineCollection } from 'astro:content';
 import yaml from 'js-yaml';
 import fs from 'fs';
+import path from 'node:path';
 import { glob } from 'astro/loaders';
 
 import { loadBlogroll } from './js/loadBlogroll.js';
 import { z } from 'astro/zod';
+import { success } from 'astro:schema';
 
 // 1. Posts collection
 
@@ -30,35 +32,45 @@ const posts = defineCollection({
 
 // 2. Blogroll collection
 
-const blogRolls = defineCollection({
+const loadBlogRollData = () => {
+    const blogRollsConfigFile = path.join(process.cwd(), 'src', 'data', 'blogrolls.yaml');
+    let yamlObject;
+
+    try {
+        const fileContents = fs.readFileSync(blogRollsConfigFile, 'utf8');
+        yamlObject = yaml.load(fileContents);
+    } catch (error: any) {
+        if (error.code === 'ENOENT') {
+            return {success: false, error: `blogroll.yaml file not found at path: ${blogRollsConfigFile}`  };
+        } else if (error.name === 'YAMLException') {
+            return {success: false, error: `Invalid YAML syntax in ${blogRollsConfigFile}: ${error.message}`  };
+        } else {
+            return {success: false, error: `An unexpected error occurred: ${error.message}` };
+
+        }
+    }
+
+    if (!yamlObject) {
+        return {success: false, error: `Blogroll YAML is invalid` };
+    }
+
+    return {success: true, data: yamlObject };
+
+}
+
+const blogRollData = loadBlogRollData();
+
+const blogRolls = blogRollData.success ? 
+defineCollection({
     loader: async () => {
-        const blogRollsConfigFile = './src/data/blogrolls.yaml';
-
-        let yamlObject;
-
-        try {
-            const fileContents = fs.readFileSync(blogRollsConfigFile, 'utf8');
-            yamlObject = yaml.load(fileContents);
-        } catch (error: any) {
-            if (error.code === 'ENOENT') {
-                throw new Error(`Config file not found at path: ${blogRollsConfigFile}` );
-            } else if (error.name === 'YAMLException') {
-                throw new Error (`Invalid YAML syntax in ${blogRollsConfigFile}: ${error.message}`);
-            } else {
-                throw new Error( `An unexpected error occurred: ${error.message}` );
-            }
-        }
-
-        if (!yamlObject) {
-            throw new Error( `Blogroll YAML is invalid` );
-        }
+       
 
         const BlogRollSourceSchema = z.array(z.object({
             category: z.string(),
             urls: z.array(z.string().url())
         }));
 
-        const blogRollObject = BlogRollSourceSchema.parse(yamlObject);
+        const blogRollObject = BlogRollSourceSchema.parse(blogRollData.data);
 
         const allBlogRollUrls = blogRollObject.flatMap( blogroll => 
             blogroll.urls.map(url => {
@@ -78,8 +90,8 @@ const blogRolls = defineCollection({
         description: z.string().optional(),
         pubDate: z.string()
     })
-})
+}) : null;
 
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { posts, blogRolls };
+export const collections = { posts, ...(blogRolls ? {blogRolls} : {})};
 
