@@ -14,7 +14,7 @@ const postFilters: string[] = [].concat( queryFilters?.posts || [""] );
 const filteredByDraftStatus = allPosts.filter( post => post.data.status === 'published')
 
 const filteredByTag = filteredByDraftStatus.filter( post =>
-  tagFilters.includes("all") || post.data.tags.some( tag => tagFilters.includes(tag))
+  tagFilters.includes("all") || post.data.tags?.some( tag => tagFilters.includes(tag))
 );
 
 const filteredBySlug = filteredByTag.filter( post => { 
